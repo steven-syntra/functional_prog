@@ -3,7 +3,9 @@ require_once "database.php";
 
 print "Dit is save.php<br>";
 
-var_dump($_POST); print "<br>";
+print '-----------DIT IS $_POST----------<br>';
+var_dump($_POST); 
+print '---------------------------------------<br>';
 
 $table_name = $_POST["tabel"];
 

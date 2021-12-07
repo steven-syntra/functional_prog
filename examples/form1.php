@@ -1,5 +1,6 @@
 <?php
 //record uit databank halen
+require_once "select.php";
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +41,7 @@
 
         <div class="form-group">
             <label for="hon_id">Id</label>
-            <input type="number" class="form-control" id="hon_id" name="hon_id">
+            <input readonly type="number" class="form-control" id="hon_id" name="hon_id">
         </div>
 
         <div class="form-group">
@@ -61,6 +62,11 @@
         <div class="form-group">
             <label for="hon_poten">Aantal poten</label>
             <input type="number" class="form-control" id="hon_poten" name="hon_poten" value="4">
+        </div>
+
+        <div class="form-group">
+            <label for="hon_land">Land</label>
+            <?php print MakeSelectLand(); ?>
         </div>
 
         <button type="submit" class="btn btn-primary">Verzenden</button>
