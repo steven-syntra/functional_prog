@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "covid19";
+$dbname = "steden";
 
 function HaliHalo()
 {

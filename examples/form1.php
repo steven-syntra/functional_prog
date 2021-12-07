@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Detail Stad</title>
+    <title>Honden</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,46 +23,39 @@
 <body>
 
 <div class="jumbotron text-center">
-    <h1>Detail Stad</h1>
+    <h1>De leukste honden van Europa</h1>
+    <p>Resize this responsive page to see the effect!</p>
 </div>
 
 <div class="container">
     <div class="row">
 
-        <?php
-        //we need data from the database, so...
-        require_once "database.php";
+    <form action="save.php" method="post">
 
-        if ( ! is_numeric( $_GET["img_id"] ) ) die("Foutieve GET parameter!");
+        <input type="hidden" name="tabel" value="hond">
 
-        $rows = GetData( "select * from image where img_id=" . $_GET["img_id"] );
-        //$row = $rows[0];
+        <div class="form-group">
+            <label for="hon_id">Id</label>
+            <input type="number" class="form-control" id="hon_id" name="hon_id">
+        </div>
 
-        foreach( $rows as $row )
-        {
-            //de kolom met de titel en de afbeelding erin
-            print '<div class="col-sm-12">';
+        <div class="form-group">
+            <label for="hon_merk">Merk</label>
+            <input type="text" class="form-control" id="hon_merk" name="hon_merk">
+        </div>
 
-            //title, filename, pixels
-            print '<h3>' . $row['img_title'] . '</h3>';
-            print '<p>filename: ' .  $row['img_filename'] . '</p>';
-            print '<p>' .  $row['img_width'] . " x " . $row['img_height'] . ' pixels</p>';
+        <div class="form-group">
+            <label for="hon_naam">Naam</label>
+            <input type="text" class="form-control" id="hon_naam" name="hon_naam">
+        </div>
 
-            //afbeelding
-            $link_image = "../images/" . $row['img_filename'];
-            print '<img class="img-fluid" style="width: 75%;" src="' . $link_image . '">';
+        <button type="submit" class="btn btn-primary">Verzenden</button>
 
-            //hyperlink
-            print '<p></p>';
-            print '<p><a href=steden2.php>Terug naar overzicht</a></p>';
-
-            print '</div>' ;
-        }
-
-        ?>
+    </form>
 
     </div>
 </div>
 
 </body>
 </html>
+
