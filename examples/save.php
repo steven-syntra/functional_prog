@@ -1,11 +1,28 @@
 <?php
+session_start();
+
 require_once "database.php";
 
 print "Dit is save.php<br>";
 
+print "whatever heeft nu de waarde " . $_SESSION["whatever"] . "<br>";
+print "De in de sessie opgeslagen token is deze: " . $_SESSION["latest_csrf"] . "<br>" ;
+
 print '-----------DIT IS $_POST----------<br>';
-var_dump($_POST); 
+var_dump($_POST);
 print '---------------------------------------<br>';
+
+if ( ! hash_equals( $_POST['csrf'], $_SESSION['latest_csrf'] ) )
+{
+    header( "Location: no_access.php");
+    die();
+}
+else
+{
+    print "CRSF is OK!!!!<br>";
+}
+
+
 
 $table_name = $_POST["tabel"];
 
@@ -25,7 +42,7 @@ foreach ( $rows as $row )
 
     if ( key_exists( $row["Field"], $_POST ))
     {
-        $fields_values[] = $row["Field"] . "=" . "'" . $_POST[$row["Field"]] . "'"  ;
+        $fields_values[] = $row["Field"] . "=" . "'" . htmlentities( trim($_POST[$row["Field"]]), ENT_QUOTES ) . "'"  ;
     }
 }
 
@@ -39,4 +56,5 @@ $result = ExecSQL($sql);
 
 var_dump($result); print "<br>";
 
+//header( "Location: " . $_POST["pagetogoto"]);
 ?>

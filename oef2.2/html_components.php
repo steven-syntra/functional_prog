@@ -4,9 +4,9 @@ function PrintHead()
     print file_get_contents("templates/head.html");
 }
 
-function PrintBody()
+function PrintBody( $class = "" )
 {
-    print "<body>";
+    print "<body class='$class'>";
 }
 
 function PrintJumbo( $title, $subtitle )
@@ -16,4 +16,10 @@ function PrintJumbo( $title, $subtitle )
     $new_jumbo = str_replace( "@@SUBTITLE@@", $subtitle, $new_jumbo);
 
     print $new_jumbo;
+}
+
+function PrintEndOfPage()
+{
+    print "</body>";
+    print "</html>";
 }

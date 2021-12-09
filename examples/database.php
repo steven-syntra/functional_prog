@@ -1,7 +1,7 @@
 <?php
 require_once( $_SERVER["DOCUMENT_ROOT"] . "/functional_prog/testmap/config.php" );
 
-var_dump($_SERVER["DOCUMENT_ROOT"]);
+//var_dump($_SERVER["DOCUMENT_ROOT"]);
 
 function GetData( $sql )
 {

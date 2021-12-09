@@ -42,5 +42,6 @@ PrintJumbo( $title = "Erg leuke plekken in Europa (steden2.php)",
     </div>
 </div>
 
-</body>
-</html>
+<?php
+PrintEndOfPage();
+?>

@@ -1,6 +1,9 @@
 <?php
 //record uit databank halen
 require_once "select.php";
+require_once "security.php";
+
+$_SESSION["whatever"] = "pompompom";
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +41,8 @@ require_once "select.php";
     <form action="save.php" method="post" style="width: 80%;">
 
         <input type="hidden" name="tabel" value="hond">
+        <input type="hidden" name="csrf" value="<?= GenerateCSRF( "form1.php"  ) ?>">
+        <input type="hidden" name="pagetogoto" value="boot.php">
 
         <div class="form-group">
             <label for="hon_id">Id</label>
@@ -51,7 +56,7 @@ require_once "select.php";
 
         <div class="form-group">
             <label for="hon_naam">Naam</label>
-            <input type="text" class="form-control" id="hon_naam">
+            <input type="text" class="form-control" id="hon_naam" name="hon_naam">
         </div>
 
         <div class="form-group">
@@ -66,10 +71,28 @@ require_once "select.php";
 
         <div class="form-group">
             <label for="hon_land">Land</label>
-            <?php print MakeSelectLand(); ?>
+            <?php //print MakeSelectLand(); ?>
+            <?php print MakeSelect( $fieldname = "img_lan_id",
+                                                        $sql = "select * from land",
+                                                        $list_fields = ["lan_id", "lan_land"] );
+            ?>
+
+            <?php print MakeSelect( $fieldname = "img_aan_id",
+                $sql = "select * from aanspreking",
+                $list_fields = ["aan_id", "aan_aanspreking"] );
+            ?>
+
         </div>
 
-        <button type="submit" class="btn btn-primary">Verzenden</button>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="img_published" name="img_published" checked>
+            <label class="form-check-label" for="img_published">
+                Published
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="btnVerzenden" name="btnVerzenden">Verzenden</button>
+        <button type="submit" class="btn btn-primary" id="btnCancel" name="btnCancel">Annuleren</button>
 
     </form>
 
