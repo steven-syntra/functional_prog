@@ -1,0 +1,39 @@
+#mainform input, #mainform select{
+    border: 1px solid #aaa;
+    background: #f6f6f6;
+    border-radius: 3px;
+    padding: 3px 10px;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+.navbar  {
+    margin-bottom: 2rem;
+}
+
+.zoek_form {
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin-bottom: 20px;
+    background: #e5e5e6;
+}
+
+.zoek_form label, .zoek_form input {
+    margin: 10px;
+}
+
+#zoek_text {
+    width: 55%;
+}
+
+table.zoek_resultaat {
+    width: 60%;
+}
+
+table.zoek_resultaat td {
+    border-bottom: 1px solid #ccc;
+}
