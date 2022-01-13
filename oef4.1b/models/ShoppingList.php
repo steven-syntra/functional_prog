@@ -10,6 +10,18 @@ class ShoppingList
     private $items = [];
     private $lengtevandenaam ;
 
+    /**
+     * @param $shop
+     * @param $date
+     * @param array $items
+     */
+    public function __construct( $p_shop, $p_date, array $p_items)
+    {
+        $this->setShop( $p_shop );
+        $this->date = $p_date;
+        $this->items = $p_items;
+    }
+
 
     /**
      * @return mixed

@@ -13,12 +13,14 @@ PrintJumbo( $title = "We gaan shoppen!" );
     <div class="row">
         <div class="col-sm-12">
         <?php
-        # $sl is een objectvariable, maar ook een instance van de class ShoppingList
-        $sl = new ShoppingList();
 
-        $sl->setShop( "Carrefour" );
-        $sl->setDate( new DateTime() ) ;
-        $sl->setItems( [ "sokken", "onderbroeken", "muts" ] ) ;
+        # $sl is een objectvariable, maar ook een instance van de class ShoppingList
+        $sl = new ShoppingList( $shop = "Carrefour",
+                                                $date = new DateTime( "2021-01-31" ),
+                                                $items =  [ "sokken", "onderbroeken", "muts" ]);
+
+//        $sl->setDate( new DateTime( "2021-01-31" ));
+//        $sl->setItems( ) ;
 
         print "<p>Waar? " . $sl->getShop() . "</p>";
         print "<p>Wanneer? " . $sl->getDateString() . "</p>";
