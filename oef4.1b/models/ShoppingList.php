@@ -24,25 +24,25 @@ class ShoppingList
 
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getShop()
+    public function getShop(): ?string
     {
         return $this->shop;
     }
 
     /**
-     * @return mixed
+     * @return DateTime
      */
-    public function getDate()
+    public function getDate(): ?DateTime
     {
         return $this->date;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getDateString()
+    public function getDateString(): string
     {
         if ( $this->lengtevandenaam < 6 )
         {
@@ -61,33 +61,46 @@ class ShoppingList
 
 
     # een methode is een function in een class
-    public function setShop( $naam_winkel )
+    public function setShop( $naam_winkel ): self
     {
         if(strlen($naam_winkel) < 4) die("Sorry, de naam moet minstens 3 karakters bevatten");
 
         $this->lengtevandenaam = strlen($naam_winkel);
         $this->shop = $naam_winkel;
+
+        return $this;
     }
 
     /**
-     * @param mixed $date
+     * @param DateTime $date
      */
-    public function setDate($date): void
+    public function setDate(DateTime $date): self
     {
         $this->date = $date;
+
+        return $this;
     }
 
     /**
      * @param array $items
      */
-    public function setItems(array $items): void
+    public function setItems(array $items): self
     {
         $this->items = $items;
+
+        return $this;
     }
 
     public function getAllTheProperties()
     {
         return [ $this->shop, $this->date, $this->items ];
+    }
+
+    public function empty(): self
+    {
+        $this->items = [];
+
+        return $this;
     }
 
 }

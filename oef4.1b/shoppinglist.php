@@ -19,16 +19,30 @@ PrintJumbo( $title = "We gaan shoppen!" );
                                                 $date = new DateTime( "2021-01-31" ),
                                                 $items =  [ "sokken", "onderbroeken", "muts" ]);
 
+        $sl->setShop("Delhaize")
+            ->setDate( new DateTime( "2021-12-31" ));
+
 //        $sl->setDate( new DateTime( "2021-01-31" ));
 //        $sl->setItems( ) ;
 
         print "<p>Waar? " . $sl->getShop() . "</p>";
+        //print "<p>Wanneer? " . $sl->getDate() . "</p>";
         print "<p>Wanneer? " . $sl->getDateString() . "</p>";
         print "<p>Welke dag is dat? " . $sl->getDate()->format("l") . "</p>";
 
-//        print "<p>Wat gaan we kopen? " . $sl->shop . "</p>>";
+        print "<p>Wat gaan we kopen? </p>";
 
-        print "<br>";
+        print "<ul>";
+
+        $sl->empty()
+            ->setItems( [ "bloemkool", "brocoli", "thym"  ] );
+
+        foreach( $sl->getItems() as $item  )
+        {
+            print "<li>" . $item . "</li>";
+        }
+
+        print "</ul>";
 
         $alltheprops = $sl->getAllTheProperties();
         var_dump($alltheprops);

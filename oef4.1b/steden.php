@@ -15,7 +15,12 @@ PrintNavbar();
 
 <?php
     //get data
-    $data = GetData( "select * from image" );
+    $data = GetData( "select * from klanten" );
+
+    $data = [ 0 => [ "kla_naam" => "De Ryck", "kla_id" => 23, ...],
+                     0 => [ "kla_naam" => "De Ryck", "kla_id" => 23, ...]
+    ];
+
 
     //get template
     $template = file_get_contents("templates/column.html");
