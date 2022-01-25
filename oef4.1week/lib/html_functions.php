@@ -22,6 +22,11 @@ function PrintNavbar( )
     print $navbar;
 }
 
+function PrintBody( )
+{
+    print "<body>";
+}
+
 function MergeViewWithData( $template, $data )
 {
     $returnvalue = "";

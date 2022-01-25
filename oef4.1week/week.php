@@ -8,26 +8,41 @@ PrintHead();
 PrintJumbo( $title = "Weekoverzicht" ,
                         $subtitle = "" );
 PrintNavbar();
+PrintBody();
 ?>
 
 <div class="container">
     <div class="row">
 
 <?php
-    $vandaag = new DateTime('2022-01-20', new DateTimeZone("Europe/Brussels"));
+    // 1. bepaal de huidige datum
+    $vandaag = new DateTime( '', new DateTimeZone("Europe/Brussels"));
+
+    // 2. bepaal het weeknummer van de huidige datum
     $weekdag_nr = $vandaag->format('N'); // bv. 4 = donderdag, ..., 7=zondag
+
+    // 3. hoeveel dagen verder is volgende maandag?
     $verschil_volgende_maandag = 8 - $weekdag_nr ;
 
+    // 4. bereken volgende maandag
     $maandag_nextw = $vandaag->add( new DateInterval( "P" . $verschil_volgende_maandag . "D" ));
+
+    // 5. ga 7 dagen terug
     $maandag_thisw = $vandaag->sub( new DateInterval( "P7D" ));
+
+    // 6. backup maken van vorige maandag als string (die wijzigt niet)
     $maandag_thisw_str = $maandag_thisw->format("Y-m-d");
 
+    // 7. zondag van huidige week uitrekenen
     $zondag_thisw = $vandaag->add( new DateInterval( "P6D" ));
+
+    // 8. backup maken van volgende zondag als string (die wijzigt niet)
     $zondag_thisw_str = $zondag_thisw->format("Y-m-d");
 
     // loop over all 7 days of next week
     $output = "<table class='table week'>";
 
+    //nieuwe objectvariabele om de hele week te overlopen, beginnen op maandag
     $loop_date = new DateTime( $maandag_thisw_str, new DateTimeZone("Europe/Brussels"));
     for ( $x = 1 ; $x <= 7; $x++ )
     {
