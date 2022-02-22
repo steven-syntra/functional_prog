@@ -1,0 +1,24 @@
+#mainform input, #mainform select{
+    border: 1px solid #aaa;
+    background: #f6f6f6;
+    border-radius: 3px;
+    padding: 3px 10px;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+.container {
+    margin-top: 2rem;
+}
+
+div.msgs {
+    display: block;
+    width: 100%;
+    background: #cbf8cb;
+    padding: 10px 15px;
+    margin-bottom: 2rem;
+    font-size: 20px;
+    border: 1px solid green;
+}
