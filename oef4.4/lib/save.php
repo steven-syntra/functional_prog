@@ -1,6 +1,8 @@
 <?php
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
+
+$public_access = true;
 require_once "autoload.php";
 
 SaveFormData();
@@ -93,7 +95,6 @@ function SaveFormData()
 
         //run SQL
         $result = ExecuteSQL( $sql );
-        var_dump($sql); die();
 
         //output if not redirected
         print $sql ;
