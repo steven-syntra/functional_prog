@@ -1,7 +1,7 @@
 <form id="mainform" name="mainform" method="POST" action="lib/save.php">
 
     <!-- meta info -->
-    <input type="hidden" id="table" name="table" value="images">
+    <input type="hidden" id="table" name="table" value="image">
     <input type="hidden" id="pkey" name="pkey" value="img_id">
     <input type="hidden" id="afterinsert" name="afterinsert" value="steden.php">
     <input type="hidden" id="afterupdate" name="afterupdate" value="steden.php">
@@ -57,14 +57,6 @@
         <div class="col-sm-8">
             @select_land@
             @img_lan_id_error@
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="img_date" class="col-sm-4 col-form-label">Datum</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control-plaintext" id="img_date" name="img_date" value="@img_date@">
-            @img_date_error@
         </div>
     </div>
 

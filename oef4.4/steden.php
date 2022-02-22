@@ -8,7 +8,7 @@ PrintHead();
 PrintJumbo( $title = "Leuke plekken in Europa" ,
                         $subtitle = "Tips voor citytrips voor vrolijke vakantiegangers!" );
 PrintNavbar();
-PrintMessages();
+//PrintMessages();
 ?>
 
 <div class="container">
@@ -16,13 +16,13 @@ PrintMessages();
 
 <?php
     //toon messages als er zijn
-    foreach ( $msgs as $msg )
-    {
-        print '<div class="msgs">' . $msg . '</div>';
-    }
+//    foreach ( $msgs as $msg )
+//    {
+//        print '<div class="msgs">' . $msg . '</div>';
+//    }
 
     //get data
-    $data = GetData( "select * from images" );
+    $data = GetData( "select * from image" );
 
     //get template
     $template = file_get_contents("templates/column.html");
